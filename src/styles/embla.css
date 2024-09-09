@@ -1,0 +1,144 @@
+.embla {
+  max-width: 100%;
+  --slide-height: 10rem;
+  --slide-size: 100%;
+}
+
+.embla__viewport {
+  overflow: hidden;
+}
+
+.embla__container {
+  display: flex;
+  touch-action: pan-y pinch-zoom;
+  position: relative;
+  margin-left: calc(var(--slide-spacing) * -1);
+}
+
+.embla__slide {
+  transform: translate3d(0, 0, 0);
+  flex: 0 0 var(--slide-size);
+  min-width: 0;
+}
+
+.embla__controls {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-top: 1.8rem;
+}
+
+.embla__dots {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.embla__dot {
+  -webkit-appearance: none;
+  appearance: none;
+  touch-action: manipulation;
+  display: inline-flex;
+  text-decoration: none;
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  margin-left: 4px;
+  width: 0.6rem;
+  height: 0.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+
+
+/* styles/emblaCont.css */
+.emblap {
+  max-width: 100%;
+  padding: 10px;
+  --slide-spacing: 1rem; /* Adjust spacing as needed */
+  --slide-size: 32.4%; /* Adjusted to make cards smaller */
+  position: relative; /* Ensures that child elements are positioned relative to this container */
+  box-sizing: border-box; /* Includes padding in the element's total width and height */
+
+}
+
+
+.embla__container {
+  display: flex;
+  touch-action: pan-y pinch-zoom;
+  margin-left: calc(var(--slide-spacing) * -1);
+}
+
+.embla__slide1 {
+  transform: translate3d(0, 0, 0);
+  flex: 0 0 var(--slide-size);
+  min-width: 0;
+  padding-left: var(--slide-spacing);
+  box-sizing: border-box; /* Ensures padding is included in the element's width */
+  display: flex; /* Ensure full height */
+}
+
+.embla__slide__content {
+  display: flex;
+  flex-direction: column;
+ background-color: white;
+  user-select: none;
+  overflow: hidden; /* Ensures content doesn't spill out of the rounded corners */
+box-shadow: rgba(33, 35, 38, 0.5) 0px 10px 10px -10px;
+}
+
+/* Controls and dots */
+.embla__controls {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem; /* Space between slides and controls */
+}
+
+.embla__dots {
+  display: flex;
+  gap: 0.5rem;
+}
+
+
+
+.embla__dot:after {
+  content: '  ';
+width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+}
+
+.embla__dot--selected:after {
+  background-color: #007bff; /* Color of the selected dot */
+}
+
+/* Responsive design */
+@media (max-width: 1200px) {
+  /* Adjust for tablets and smaller desktops */
+  .emblap {
+    --slide-size: 48%; /* Adjust card size for medium screens */
+    --slide-spacing: 0.5rem; /* Reduced spacing for medium screens */
+  }
+}
+
+@media (max-width: 768px) {
+  /* Adjust for mobile devices */
+  .emblap {
+    --slide-size: 80%; /* Adjust card size for mobile screens */
+    --slide-spacing: 0.25rem; /* Reduced spacing for mobile screens */
+    padding: 5px; /* Adjust padding for mobile screens */
+  }
+}
+
+@media (max-width: 480px) {
+  /* Adjust for very small screens */
+  .embla__slide {
+    flex: 0 0 100%; /* Full width on very small screens */
+    padding-left: 0; /* Remove padding on very small screens */
+  }
+}
